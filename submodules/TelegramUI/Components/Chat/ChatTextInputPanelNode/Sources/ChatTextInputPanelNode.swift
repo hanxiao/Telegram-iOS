@@ -2268,7 +2268,7 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
         
         self.updateActionButtons(hasText: inputHasText, transition: transition)
         
-        var mediaActionButtonsSize = CGSize(width: 40.0, height: 40.0)
+        var mediaActionButtonsSize = CGSize(width: 52.0, height: 52.0)
         var sendActionButtonsSize = CGSize(width: 40.0, height: 40.0)
         if let presentationInterfaceState = self.presentationInterfaceState {
             var showTitle = false
@@ -2283,7 +2283,7 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
                 }
             }
             sendActionButtonsSize = self.sendActionButtons.updateLayout(size: CGSize(width: 40.0, height: minimalHeight), isMediaInputExpanded: isMediaInputExpanded, showTitle: showTitle, currentMessageEffectId: presentationInterfaceState.interfaceState.sendMessageEffect, transition: transition, interfaceState: presentationInterfaceState)
-            mediaActionButtonsSize = self.mediaActionButtons.updateLayout(size: CGSize(width: 40.0, height: minimalHeight), isMediaInputExpanded: isMediaInputExpanded, showTitle: false, currentMessageEffectId: presentationInterfaceState.interfaceState.sendMessageEffect, transition: transition, interfaceState: presentationInterfaceState)
+            mediaActionButtonsSize = self.mediaActionButtons.updateLayout(size: CGSize(width: 52.0, height: minimalHeight), isMediaInputExpanded: isMediaInputExpanded, showTitle: false, currentMessageEffectId: presentationInterfaceState.interfaceState.sendMessageEffect, transition: transition, interfaceState: presentationInterfaceState)
         }
         
         var starReactionButtonSize: CGSize?

@@ -1986,40 +1986,8 @@ public final class ChatSideTopicsPanel: Component {
             }
             
             var listItems: [AnyComponentWithIdentity<Empty>] = []
-            switch component.location {
-            case .side:
-                listItems.append(AnyComponentWithIdentity(
-                    id: ScrollId.all,
-                    component: AnyComponent(VerticalAllItemComponent(
-                        isSelected: component.topicId == nil,
-                        kind: component.kind,
-                        theme: component.theme,
-                        strings: component.strings,
-                        action: { [weak self] in
-                            guard let self, let component = self.component else {
-                                return
-                            }
-                            component.updateTopicId(nil, false)
-                        }
-                    )))
-                )
-            case .top:
-                listItems.append(AnyComponentWithIdentity(
-                    id: ScrollId.all,
-                    component: AnyComponent(HorizontalAllItemComponent(
-                        isSelected: component.topicId == nil,
-                        kind: component.kind,
-                        theme: component.theme,
-                        strings: component.strings,
-                        action: { [weak self] in
-                            guard let self, let component = self.component else {
-                                return
-                            }
-                            component.updateTopicId(nil, false)
-                        }
-                    )))
-                )
-            }
+            // "All" topic tab removed to prevent accidental topic switching
+            let _ = component.location
             for item in self.reorderingItems ?? self.rawItems {
                 let scrollId: ScrollId
                 let topicId: Int64
