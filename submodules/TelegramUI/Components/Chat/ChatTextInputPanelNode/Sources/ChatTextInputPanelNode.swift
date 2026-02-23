@@ -2286,36 +2286,12 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
             mediaActionButtonsSize = self.mediaActionButtons.updateLayout(size: CGSize(width: 52.0, height: minimalHeight), isMediaInputExpanded: isMediaInputExpanded, showTitle: false, currentMessageEffectId: presentationInterfaceState.interfaceState.sendMessageEffect, transition: transition, interfaceState: presentationInterfaceState)
         }
         
+        // Star/emoji reaction button above mic removed to reduce clutter
         var starReactionButtonSize: CGSize?
-        if let customRightAction = self.customRightAction, case let .stars(count, isFilled, action, longPressAction) = customRightAction {
-            let starReactionButton: ComponentView<Empty>
-            var starReactionButtonTransition = transition
-            if let current = self.starReactionButton {
-                starReactionButton = current
-            } else {
-                starReactionButton = ComponentView()
-                self.starReactionButton = starReactionButton
-                starReactionButtonTransition = .immediate
-            }
-            starReactionButtonSize = starReactionButton.update(
-                transition: ComponentTransition(starReactionButtonTransition),
-                component: AnyComponent(StarReactionButtonComponent(
-                    theme: interfaceState.theme,
-                    count: count,
-                    isFilled: isFilled,
-                    action: action,
-                    longPressAction: longPressAction
-                )),
-                environment: {},
-                containerSize: CGSize(width: 40.0, height: 40.0)
-            )
-        } else if let starReactionButton = self.starReactionButton {
+        if let starReactionButton = self.starReactionButton {
             self.starReactionButton = nil
             if let starReactionButtonView = starReactionButton.view {
-                transition.updateAlpha(layer: starReactionButtonView.layer, alpha: 0.0, completion: { [weak starReactionButtonView] _ in
-                    starReactionButtonView?.removeFromSuperview()
-                })
-                transition.updateTransformScale(layer: starReactionButtonView.layer, scale: 0.001)
+                starReactionButtonView.removeFromSuperview()
             }
         }
         
