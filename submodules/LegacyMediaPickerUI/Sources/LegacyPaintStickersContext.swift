@@ -18,13 +18,16 @@ import CoreMedia
 
 // MARK: - Stub types for DrawingUI (lean build)
 enum DrawingStickerEntityContent {
-    case file(Any, Any)
+    case file(StickerPackFileReference, Any)
     case image(UIImage, Any)
     case animatedImage(Any, Any)
     case video(Any, Any)
     case dualVideoReference(Any, Any)
     case message(Any)
     case gift(Any)
+}
+struct StickerPackFileReference {
+    let media: TelegramMediaFile
 }
 protocol DrawingStickerEntity: AnyObject {
     var position: CGPoint { get }
