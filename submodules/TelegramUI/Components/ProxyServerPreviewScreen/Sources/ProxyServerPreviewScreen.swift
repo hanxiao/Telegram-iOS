@@ -12,9 +12,44 @@ import SheetComponent
 import MultilineTextComponent
 import GlassBarButtonComponent
 import ButtonComponent
-import TableComponent
+// import TableComponent // LEAN: removed
 import PresentationDataUtils
 import BundleIconComponent
+
+// LEAN: TableComponent stub (removed module)
+final class TableComponent: Component {
+    struct Item: Equatable {
+        let id: AnyHashable
+        let title: String
+        let value: String
+        
+        init(id: AnyHashable, title: String, value: String) {
+            self.id = id
+            self.title = title
+            self.value = value
+        }
+        
+        static func == (lhs: Item, rhs: Item) -> Bool {
+            return lhs.id == rhs.id && lhs.title == rhs.title && lhs.value == rhs.value
+        }
+    }
+    
+    init(theme: Any, items: [Item], semiTransparent: Bool) {}
+    
+    static func ==(lhs: TableComponent, rhs: TableComponent) -> Bool {
+        return true // stub
+    }
+    
+    func makeView() -> View {
+        return View()
+    }
+    
+    func update(view: View, availableSize: CGSize, state: EmptyComponentState, environment: Environment<Empty>, transition: ComponentTransition) -> CGSize {
+        return CGSize(width: 100, height: 100) // stub
+    }
+    
+    final class View: UIView {}
+}
 import OverlayStatusController
 
 private final class ProxyServerPreviewSheetContent: CombinedComponent {

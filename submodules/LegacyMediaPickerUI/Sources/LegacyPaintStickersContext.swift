@@ -17,10 +17,42 @@ import AnimatedCountLabelNode
 import CoreMedia
 
 // MARK: - Stub types for DrawingUI (lean build)
-protocol DrawingStickerEntity: AnyObject {}
-protocol DrawingSimpleShapeEntity: AnyObject {}
-protocol DrawingBubbleEntity: AnyObject {}
-protocol DrawingVectorEntity: AnyObject {}
+enum DrawingStickerEntityContent {
+    case file(Any, Any)
+    case image(UIImage, Any)
+}
+protocol DrawingStickerEntity: AnyObject {
+    var position: CGPoint { get }
+    var scale: CGFloat { get }
+    var rotation: CGFloat { get }
+    var baseSize: CGSize { get }
+    var mirrored: Bool { get }
+    var isAnimated: Bool { get }
+    var content: DrawingStickerEntityContent { get }
+}
+protocol DrawingSimpleShapeEntity: AnyObject {
+    var position: CGPoint { get }
+    var rotation: CGFloat { get }
+    var size: CGSize { get }
+    var renderImage: UIImage? { get }
+}
+protocol DrawingBubbleEntity: AnyObject {
+    var position: CGPoint { get }
+    var rotation: CGFloat { get }
+    var size: CGSize { get }
+    var renderImage: UIImage? { get }
+}
+protocol DrawingVectorEntity: AnyObject {
+    var drawingSize: CGSize { get }
+    var renderImage: UIImage? { get }
+}
+protocol DrawingTextEntity: AnyObject {
+    var position: CGPoint { get }
+    var scale: CGFloat { get }
+    var rotation: CGFloat { get }
+    var renderImage: UIImage? { get }
+    var renderSubEntities: [AnyObject]? { get }
+}
 class DrawingScreen: TGPhotoDrawingInterfaceController {
     var drawingView: TGPhotoDrawingView
     var entitiesView: TGPhotoDrawingEntitiesView
@@ -40,6 +72,19 @@ class DrawingEntitiesView: UIView, TGPhotoDrawingEntitiesView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // TGPhotoDrawingEntitiesView protocol stubs
+    func onInteractionUpdated(_ f: (() -> Void)!) {}
+    func onEntityHandleTap(_ f: (() -> Void)!) {}
+    func onSelectionChanged(_ f: (() -> Void)!) {}
+    func onZoom() {}
+    func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {}
+    func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {}
+    func handleRotate(_ gestureRecognizer: UIRotationGestureRecognizer) {}
+    func setup(withEntitiesData entitiesData: Data?) {}
+}
+func decodeDrawingEntities(data: Data) -> [AnyObject] {
+    return [] // stub - return empty array
 }
 
 protocol LegacyPaintEntity {
