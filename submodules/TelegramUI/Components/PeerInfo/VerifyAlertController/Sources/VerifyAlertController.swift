@@ -13,7 +13,21 @@ import BalancedTextComponent
 import TextFieldComponent
 import ComponentDisplayAdapters
 import TextFormat
-import PremiumPeerShortcutComponent
+// import PremiumPeerShortcutComponent // LEAN: removed premium
+
+// LEAN: PremiumPeerShortcutComponent stub (removed module)
+struct PremiumPeerShortcutComponent: Component {
+    let context: Any
+    let theme: Any
+    let peer: Any
+    let icon: Any
+    let iconPosition: Any
+    
+    static func == (lhs: PremiumPeerShortcutComponent, rhs: PremiumPeerShortcutComponent) -> Bool { return false }
+    
+    func makeView() -> UIView { return UIView() }
+    func update(view: UIView, availableSize: CGSize, state: EmptyComponentState, environment: Environment<Empty>, transition: ComponentTransition) -> CGSize { return CGSize() }
+}
 
 private final class VerifyAlertContentNode: AlertContentNode {
     private let context: AccountContext

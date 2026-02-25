@@ -6,10 +6,19 @@ import TelegramPresentationData
 import AccountContext
 import ChatListTitleView
 import AppBundle
-import StoryPeerListComponent
+// import StoryPeerListComponent // LEAN: removed stories
 import TelegramCore
 import MoreHeaderButton
 import GlassBackgroundComponent
+
+// LEAN: StoryPeerListComponent stub (removed module)
+enum StoryPeerListComponent: Component {
+    final class ExternalState {}
+    enum PeerStatus {}
+    final class View: UIView {}
+    init() {}
+    static func == (lhs: StoryPeerListComponent, rhs: StoryPeerListComponent) -> Bool { return false }
+}
 
 public final class HeaderNetworkStatusComponent: Component {
     public enum Content: Equatable {
