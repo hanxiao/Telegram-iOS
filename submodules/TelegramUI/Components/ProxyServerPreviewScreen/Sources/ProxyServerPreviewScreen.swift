@@ -34,7 +34,7 @@ final class TableComponent: Component {
         }
     }
     
-    init(theme: Any, items: [Item], semiTransparent: Bool) {}
+    init(theme: Any, items: [Item], semiTransparent: Bool = false) {}
     
     static func ==(lhs: TableComponent, rhs: TableComponent) -> Bool {
         return true // stub
