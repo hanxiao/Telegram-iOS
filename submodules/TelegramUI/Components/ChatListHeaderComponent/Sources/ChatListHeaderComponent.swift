@@ -12,12 +12,33 @@ import MoreHeaderButton
 import GlassBackgroundComponent
 
 // LEAN: StoryPeerListComponent stub (removed module)
-enum StoryPeerListComponent: Component {
-    final class ExternalState {}
-    enum PeerStatus {}
-    final class View: UIView {}
-    init() {}
-    static func == (lhs: StoryPeerListComponent, rhs: StoryPeerListComponent) -> Bool { return false }
+public struct StoryPeerListComponent: Component {
+    public typealias EnvironmentType = Empty
+    
+    public final class ExternalState {}
+    
+    public enum PeerStatus {
+        case premium
+        case emoji(PeerEmojiStatus)
+    }
+    
+    public final class View: UIView {
+        func openEmojiStatusSetup() {}
+    }
+    
+    init(externalState: ExternalState, context: Any, theme: Any, strings: Any, sideInset: Any, title: Any, titleHasLock: Any, titleHasActivity: Any, titlePeerStatus: Any, minTitleX: Any, maxTitleX: Any, useHiddenList: Any, storySubscriptions: Any, collapseFraction: Any, unlocked: Any, uploadProgress: Any, peerAction: Any, contextPeerAction: Any, openStatusSetup: Any, lockAction: Any, composeAction: Any) {}
+    
+    public static func == (lhs: StoryPeerListComponent, rhs: StoryPeerListComponent) -> Bool { 
+        return false 
+    }
+    
+    public func makeView() -> View {
+        return View()
+    }
+    
+    public func update(view: View, availableSize: CGSize, state: State, environment: Environment<EnvironmentType>, transition: ComponentTransition) -> CGSize {
+        return CGSize(width: availableSize.width, height: 0)
+    }
 }
 
 public final class HeaderNetworkStatusComponent: Component {
@@ -944,7 +965,7 @@ public final class ChatListHeaderComponent: Component {
                         title: primaryTitle,
                         titleHasLock: primaryTitleHasLock,
                         titleHasActivity: primaryTitleHasActivity,
-                        titlePeerStatus: primaryTitlePeerStatus,
+                        titlePeerStatus: primaryTitlePeerStatus as Any,
                         minTitleX: self.primaryContentView?.centerContentLeftInset ?? 0.0,
                         maxTitleX: availableSize.width - (self.primaryContentView?.centerContentRightInset ?? 0.0),
                         useHiddenList: component.storiesIncludeHidden,

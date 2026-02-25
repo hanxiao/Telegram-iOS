@@ -17,11 +17,16 @@ import TextFormat
 
 // LEAN: PremiumPeerShortcutComponent stub (removed module)
 struct PremiumPeerShortcutComponent: Component {
+    enum IconPosition {
+        case left
+        case right
+    }
+    
     let context: Any
     let theme: Any
     let peer: Any
     let icon: Any
-    let iconPosition: Any
+    let iconPosition: IconPosition
     
     static func == (lhs: PremiumPeerShortcutComponent, rhs: PremiumPeerShortcutComponent) -> Bool { return false }
     
@@ -215,7 +220,7 @@ private final class VerifyAlertContentNode: AlertContentNode {
                 context: self.context,
                 theme: self.presentationTheme,
                 peer: self.peer,
-                icon: self.verifierIcon,
+                icon: self.verifierIcon as Any,
                 iconPosition: .left
             )),
             environment: {},

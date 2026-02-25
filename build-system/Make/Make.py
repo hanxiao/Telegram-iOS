@@ -279,7 +279,7 @@ class BazelCommandLine:
             combined_arguments += ['--spawn_strategy=sandboxed']
 
         if self.disable_provisioning_profiles:
-            combined_arguments += ['--//Telegram:disableProvisioningProfiles']
+            combined_arguments += ['--//Telegram:disableProvisioningProfiles=True']
 
         combined_arguments += self.common_args
         combined_arguments += self.common_build_args
@@ -387,7 +387,7 @@ class BazelCommandLine:
             combined_arguments += ['--spawn_strategy=sandboxed']
 
         if self.disable_provisioning_profiles:
-            combined_arguments += ['--//Telegram:disableProvisioningProfiles']
+            combined_arguments += ['--//Telegram:disableProvisioningProfiles=True']
 
         combined_arguments += self.common_args
         combined_arguments += self.common_build_args
@@ -556,6 +556,7 @@ def generate_project(bazel, arguments):
         project_include_release = arguments.projectIncludeRelease
     if arguments.xcodeManagedCodesigning is not None and arguments.xcodeManagedCodesigning == True:
         disable_extensions = True
+        disable_provisioning_profiles = True
     if arguments.generateDsym is not None:
         generate_dsym = arguments.generateDsym
     if arguments.target is not None:
@@ -597,6 +598,13 @@ def build(bazel, arguments):
         override_xcode_version=arguments.overrideXcodeVersion,
         bazel_user_root=arguments.bazelUserRoot
     )
+    
+    # Determine if provisioning profiles should be disabled
+    disable_provisioning_profiles = False
+    if hasattr(arguments, 'disableProvisioningProfiles') and arguments.disableProvisioningProfiles is not None:
+        disable_provisioning_profiles = arguments.disableProvisioningProfiles
+    if hasattr(arguments, 'xcodeManagedCodesigning') and arguments.xcodeManagedCodesigning is not None and arguments.xcodeManagedCodesigning == True:
+        disable_provisioning_profiles = True
 
     if arguments.lock:
         bazel_command_line.set_lock(True)
@@ -622,6 +630,9 @@ def build(bazel, arguments):
     bazel_command_line.set_profile_swift(arguments.profileSwift)
 
     bazel_command_line.set_split_swiftmodules(arguments.enableParallelSwiftmoduleGeneration)
+    
+    if disable_provisioning_profiles:
+        bazel_command_line.set_disable_provisioning_profiles()
 
     bazel_command_line.invoke_build()
 

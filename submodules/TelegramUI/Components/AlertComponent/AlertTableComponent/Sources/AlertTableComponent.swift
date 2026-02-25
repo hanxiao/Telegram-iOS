@@ -8,13 +8,42 @@ import AlertComponent
 // import TableComponent // LEAN: removed
 
 // LEAN: TableComponent stub (removed module)
-enum TableComponent {
-    struct Item: Equatable {
-        static func == (lhs: Item, rhs: Item) -> Bool {
+public struct TableComponent: Component {
+    public typealias EnvironmentType = Empty
+    
+    public struct Item: Equatable {
+        public static func == (lhs: Item, rhs: Item) -> Bool {
             return false // stub
         }
     }
-    init(theme: Any, items: [Item], semiTransparent: Bool) {}
+    
+    let theme: Any
+    let items: [Item]
+    let semiTransparent: Bool
+    
+    public init(theme: Any, items: [Item], semiTransparent: Bool) {
+        self.theme = theme
+        self.items = items
+        self.semiTransparent = semiTransparent
+    }
+    
+    public static func ==(lhs: TableComponent, rhs: TableComponent) -> Bool {
+        return lhs.items == rhs.items
+    }
+    
+    public final class View: UIView {
+        func update(component: TableComponent, availableSize: CGSize, state: EmptyComponentState, environment: Environment<Empty>, transition: ComponentTransition) -> CGSize {
+            return CGSize(width: availableSize.width, height: 0)
+        }
+    }
+    
+    public func makeView() -> View {
+        return View()
+    }
+    
+    public func update(view: View, availableSize: CGSize, state: State, environment: Environment<EnvironmentType>, transition: ComponentTransition) -> CGSize {
+        return view.update(component: self, availableSize: availableSize, state: state, environment: environment, transition: transition)
+    }
 }
 
 public final class AlertTableComponent: Component {
