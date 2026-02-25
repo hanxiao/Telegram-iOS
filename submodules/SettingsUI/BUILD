@@ -94,7 +94,6 @@ swift_library(
         "//submodules/TelegramAnimatedStickerNode:TelegramAnimatedStickerNode",
         "//submodules/FetchManagerImpl:FetchManagerImpl",
         "//submodules/ListMessageItem:ListMessageItem",
-        "//submodules/PaymentMethodUI:PaymentMethodUI",
         "//submodules/InviteLinksUI:InviteLinksUI",
         "//submodules/HorizontalPeerItem:HorizontalPeerItem",
         "//submodules/TelegramUI/Components/EntityKeyboard:EntityKeyboard",

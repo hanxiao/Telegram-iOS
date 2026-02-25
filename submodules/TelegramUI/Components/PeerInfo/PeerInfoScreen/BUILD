@@ -71,7 +71,6 @@ swift_library(
         "//submodules/OpenInExternalAppUI",
         "//submodules/OverlayStatusController",
         "//submodules/PasswordSetupUI",
-        "//submodules/PaymentMethodUI",
         "//submodules/TelegramUI/Components/PeerAllowedReactionsScreen",
         "//submodules/PeerAvatarGalleryUI",
         "//submodules/PeerInfoAvatarListNode",

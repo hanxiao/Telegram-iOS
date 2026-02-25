@@ -65,7 +65,6 @@ import QrCodeUI
 import TranslateUI
 import ChatPresentationInterfaceState
 import CreateExternalMediaStreamScreen
-import PaymentMethodUI
 import PremiumUI
 import InstantPageCache
 import EmojiStatusSelectionComponent
@@ -4770,17 +4769,6 @@ final class PeerInfoScreenNode: ViewControllerTracingNode, PeerInfoScreenNodePro
     }
     
     fileprivate func openPaymentMethod() {
-        self.controller?.push(AddPaymentMethodSheetScreen(context: self.context, action: { [weak self] in
-            guard let strongSelf = self else {
-                return
-            }
-            strongSelf.controller?.push(PaymentCardEntryScreen(context: strongSelf.context, completion: { result in
-                guard let strongSelf = self else {
-                    return
-                }
-                strongSelf.controller?.push(paymentMethodListScreen(context: strongSelf.context, items: [result]))
-            }))
-        }))
     }
     
     private func updateBio(_ bio: String) {
