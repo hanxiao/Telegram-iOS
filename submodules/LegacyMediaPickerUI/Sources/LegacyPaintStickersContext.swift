@@ -58,17 +58,27 @@ protocol DrawingTextEntity: AnyObject {
     var renderImage: UIImage? { get }
     var renderSubEntities: [AnyObject]? { get }
 }
-class DrawingScreen: TGPhotoDrawingInterfaceController {
+class DrawingScreen: NSObject, TGPhotoDrawingInterfaceController {
     var drawingView: TGPhotoDrawingView
     var entitiesView: TGPhotoDrawingEntitiesView
     var selectionContainerView: UIView
     var contentWrapperView: UIView
+    var requestDismiss: (() -> Void) = {}
+    var requestApply: (() -> Void) = {}
+    var getCurrentImage: (() -> UIImage?) = { nil }
+    var updateVideoPlayback: ((Bool) -> Void) = { _ in }
+    
     init(context: AccountContext, size: CGSize, originalSize: CGSize, isVideo: Bool, isAvatar: Bool, drawingView: TGPhotoDrawingView?, entitiesView: (UIView & TGPhotoDrawingEntitiesView)?, selectionContainerView: UIView?) {
         self.drawingView = drawingView ?? UIView() as! TGPhotoDrawingView
         self.entitiesView = entitiesView ?? (UIView() as! (UIView & TGPhotoDrawingEntitiesView))
         self.selectionContainerView = selectionContainerView ?? UIView()
         self.contentWrapperView = UIView()
+        super.init()
     }
+    
+    func generateResultData() -> TGPaintingData? { return nil }
+    func animateOut(_ completion: @escaping () -> Void) { completion() }
+    func adapterContainerLayoutUpdatedSize(_ size: CGSize, intrinsicInsets: UIEdgeInsets, safeInsets: UIEdgeInsets, statusBarHeight: CGFloat, inputHeight: CGFloat, orientation: UIInterfaceOrientation, isRegular: Bool, animated: Bool) {}
 }
 class DrawingEntitiesView: UIView, TGPhotoDrawingEntitiesView {
     init(context: AccountContext, size: CGSize) {
