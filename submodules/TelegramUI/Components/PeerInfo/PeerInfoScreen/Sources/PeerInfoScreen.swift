@@ -50,7 +50,6 @@ import PeerInfoUI
 import ListMessageItem
 import GalleryData
 import ChatInterfaceState
-import TelegramVoip
 import InviteLinksUI
 import UndoUI
 import MediaResources

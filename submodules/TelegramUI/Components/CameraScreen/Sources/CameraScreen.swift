@@ -26,7 +26,6 @@ import MediaAssetsContext
 import UndoUI
 import MetalEngine
 import ShareWithPeersScreen
-import TelegramVoip
 import TelegramCallsUI
 import GlassBarButtonComponent
 import PlainButtonComponent

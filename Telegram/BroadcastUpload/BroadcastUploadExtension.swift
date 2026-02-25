@@ -1,7 +1,6 @@
 import Foundation
 import ReplayKit
 import CoreVideo
-import TelegramVoip
 import SwiftSignalKit
 import BuildConfig
 import BroadcastUploadHelpers

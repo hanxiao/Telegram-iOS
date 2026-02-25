@@ -10,7 +10,6 @@ import AccountContext
 import TelegramAudio
 import Display
 import PhotoResources
-import TelegramVoip
 import RangeSet
 import AppBundle
 import ManagedFile

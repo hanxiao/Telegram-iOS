@@ -1396,7 +1396,6 @@ swift_library(
     ],
     deps = [
         "//submodules/TelegramUI:TelegramUI",
-        "//submodules/TelegramVoip:TelegramVoip",
         "//submodules/SSignalKit/SwiftSignalKit:SwiftSignalKit",
         "//submodules/BuildConfig:BuildConfig",
         "//submodules/WidgetItems:WidgetItems",
