@@ -20,6 +20,11 @@ import CoreMedia
 enum DrawingStickerEntityContent {
     case file(Any, Any)
     case image(UIImage, Any)
+    case animatedImage(Any, Any)
+    case video(Any, Any)
+    case dualVideoReference(Any, Any)
+    case message(Any)
+    case gift(Any)
 }
 protocol DrawingStickerEntity: AnyObject {
     var position: CGPoint { get }
@@ -82,6 +87,11 @@ class DrawingEntitiesView: UIView, TGPhotoDrawingEntitiesView {
     func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {}
     func handleRotate(_ gestureRecognizer: UIRotationGestureRecognizer) {}
     func setup(withEntitiesData entitiesData: Data?) {}
+    func pause() {}
+    func seek(to timestamp: Double) {}
+    func resetToStart() {}
+    func updateVisibility(_ visibility: Bool) {}
+    func clearSelection() {}
 }
 func decodeDrawingEntities(data: Data) -> [AnyObject] {
     return [] // stub - return empty array
