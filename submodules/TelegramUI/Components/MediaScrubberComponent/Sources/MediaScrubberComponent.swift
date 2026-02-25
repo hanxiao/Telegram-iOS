@@ -668,7 +668,7 @@ public final class MediaScrubberComponent: Component {
                     self.collageTrackView = trackView
                 }
                 
-                let strings = component.context.sharedContext.currentPresentationData.with { $0 }.strings
+                // let strings = component.context.sharedContext.currentPresentationData.with { $0 }.strings // LEAN: unused after MediaEditor removal
                 let trackSize = trackView.update(
                     context: component.context,
                     style: component.style,

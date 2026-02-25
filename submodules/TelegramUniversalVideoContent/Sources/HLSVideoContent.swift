@@ -14,6 +14,13 @@ import RangeSet
 import ManagedFile
 import AppBundle
 
+// LEAN: SharedHLSServer stub (removed module)
+protocol SharedHLSServerSource {
+}
+enum SharedHLSServer {
+    typealias Source = SharedHLSServerSource
+}
+
 public struct HLSCodecConfiguration {
     public var isHardwareAv1Supported: Bool
     public var isSoftwareAv1Supported: Bool
