@@ -36,7 +36,6 @@ swift_library(
         "//submodules/TooltipUI",
         "//submodules/TelegramNotices",
         "//submodules/DeviceAccess",
-        "//submodules/TelegramUI/Components/MediaEditor",
         "//submodules/LegacyMediaPickerUI",
         "//submodules/TelegramAudio",
         "//submodules/ChatSendMessageActionUI",

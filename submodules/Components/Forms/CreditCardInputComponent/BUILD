@@ -12,7 +12,6 @@ swift_library(
     deps = [
         "//submodules/Display:Display",
         "//submodules/ComponentFlow:ComponentFlow",
-        "//submodules/Stripe:Stripe",
     ],
     visibility = [
         "//visibility:public",

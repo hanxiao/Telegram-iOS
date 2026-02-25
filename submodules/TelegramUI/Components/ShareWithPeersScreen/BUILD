@@ -33,7 +33,6 @@ swift_library(
         "//submodules/AvatarNode",
         "//submodules/CheckNode",
         "//submodules/LocalizedPeerData",
-        "//submodules/TelegramUI/Components/Stories/PeerListItemComponent",
         "//submodules/TelegramUI/Components/LottieComponent",
         "//submodules/TelegramUI/Components/SwitchComponent",
         "//submodules/TooltipUI",

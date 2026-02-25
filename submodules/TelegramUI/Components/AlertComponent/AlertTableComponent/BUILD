@@ -15,7 +15,6 @@ swift_library(
         "//submodules/ComponentFlow",
         "//submodules/TelegramPresentationData",
         "//submodules/TelegramUI/Components/AlertComponent",
-        "//submodules/TelegramUI/Components/Gifts/TableComponent",
     ],
     visibility = [
         "//visibility:public",

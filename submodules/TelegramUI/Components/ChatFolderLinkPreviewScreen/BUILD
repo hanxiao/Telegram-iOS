@@ -32,7 +32,6 @@ swift_library(
         "//submodules/CheckNode",
         "//submodules/Markdown",
         "//submodules/UndoUI",
-        "//submodules/PremiumUI",
         "//submodules/QrCodeUI",
         "//submodules/InviteLinksUI",
         "//submodules/Components/MultilineTextWithEntitiesComponent",

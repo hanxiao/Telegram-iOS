@@ -33,7 +33,6 @@ swift_library(
         "//submodules/TelegramUI/Components/TextNodeWithEntities",
         "//submodules/InvisibleInkDustNode",
         "//submodules/TelegramUI/Components/PeerInfo/PeerInfoCoverComponent",
-        "//submodules/TelegramUI/Components/Gifts/GiftItemComponent",
     ],
     visibility = [
         "//visibility:public",

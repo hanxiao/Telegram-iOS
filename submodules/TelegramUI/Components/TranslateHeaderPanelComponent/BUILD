@@ -26,7 +26,6 @@ swift_library(
         "//submodules/TranslateUI",
         "//submodules/TelegramUIPreferences",
         "//submodules/TelegramNotices",
-        "//submodules/PremiumUI",
     ],
     visibility = [
         "//visibility:public",

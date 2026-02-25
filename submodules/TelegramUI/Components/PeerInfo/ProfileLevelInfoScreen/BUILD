@@ -25,7 +25,6 @@ swift_library(
         "//submodules/TelegramUI/Components/ButtonComponent",
         "//submodules/Components/BundleIconComponent",
         "//submodules/TelegramUI/Components/PlainButtonComponent",
-        "//submodules/PremiumUI",
         "//submodules/TelegramUI/Components/LottieComponent",
         "//submodules/TelegramUI/Components/Utils/RoundedRectWithTailPath",
         "//submodules/Components/HierarchyTrackingLayer",

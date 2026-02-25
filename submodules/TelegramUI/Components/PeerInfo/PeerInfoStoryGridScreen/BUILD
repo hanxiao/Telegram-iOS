@@ -26,7 +26,6 @@ swift_library(
         "//submodules/UndoUI",
         "//submodules/TelegramUI/Components/BottomButtonPanelComponent",
         "//submodules/TelegramUI/Components/MoreHeaderButton",
-        "//submodules/TelegramUI/Components/MediaEditorScreen",
         "//submodules/SaveToCameraRoll",
         "//submodules/ShareController",
         "//submodules/OpenInExternalAppUI",

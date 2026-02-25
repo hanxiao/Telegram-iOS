@@ -36,7 +36,6 @@ swift_library(
         "//submodules/TelegramUI/Components/LottieComponent",
         "//submodules/TelegramUI/Components/LottieComponentResourceContent",
         "//submodules/ChatPresentationInterfaceState",
-        "//submodules/TelegramUI/Components/MediaEditor",
         "//submodules/TelegramUI/Components/CameraButtonComponent",
         "//submodules/ContextUI",
         "//submodules/UndoUI",

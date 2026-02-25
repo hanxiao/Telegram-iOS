@@ -26,7 +26,6 @@ swift_library(
         "//submodules/AppBundle:AppBundle",
         "//submodules/TelegramUI/Components/ChatInputNode:ChatInputNode",
         "//submodules/Components/PagerComponent:PagerComponent",
-        "//submodules/PremiumUI:PremiumUI",
         "//submodules/UndoUI:UndoUI",
         "//submodules/ContextUI:ContextUI",
         "//submodules/StickerResources",

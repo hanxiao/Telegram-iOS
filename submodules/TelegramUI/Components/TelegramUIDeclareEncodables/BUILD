@@ -14,7 +14,6 @@ swift_library(
         "//submodules/TemporaryCachedPeerDataManager",
         "//submodules/TelegramUIPreferences",
         "//submodules/TelegramNotices",
-        "//submodules/InstantPageUI",
         "//submodules/AccountContext",
         "//submodules/LocalMediaResources",
         "//submodules/WebSearchUI",

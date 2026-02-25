@@ -24,7 +24,6 @@ swift_library(
         "//submodules/TelegramUI/Components/ButtonComponent",
         "//submodules/TelegramUI/Components/GlassBarButtonComponent",
         "//submodules/Components/SheetComponent",
-        "//submodules/TelegramUI/Components/Gifts/TableComponent",
         "//submodules/PresentationDataUtils",
         "//submodules/Components/BundleIconComponent",
         "//submodules/OverlayStatusController",

@@ -18,7 +18,6 @@ swift_library(
         "//submodules/FFMpegBinding",
         "//submodules/LocalMediaResources",
         "//submodules/LegacyMediaPickerUI",
-        "//submodules/TelegramUI/Components/MediaEditor",
     ],
     visibility = [
         "//visibility:public",

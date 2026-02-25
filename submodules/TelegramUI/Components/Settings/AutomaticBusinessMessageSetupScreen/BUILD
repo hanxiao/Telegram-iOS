@@ -33,7 +33,6 @@ swift_library(
         "//submodules/TelegramUI/Components/LottieComponent",
         "//submodules/AvatarNode",
         "//submodules/TelegramUI/Components/PlainButtonComponent",
-        "//submodules/TelegramUI/Components/Stories/PeerListItemComponent",
         "//submodules/TelegramUI/Components/ListItemSliderSelectorComponent",
         "//submodules/ShimmerEffect",
         "//submodules/ChatListUI",

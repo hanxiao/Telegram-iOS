@@ -20,7 +20,6 @@ swift_library(
         "//submodules/AppBundle",
         "//submodules/AsyncDisplayKit",
         "//submodules/AnimationUI",
-        "//submodules/TelegramUI/Components/Stories/StoryPeerListComponent",
         "//submodules/Components/ComponentDisplayAdapters",
         "//submodules/SearchUI",
         "//submodules/TelegramUI/Components/MoreHeaderButton",

@@ -16,7 +16,6 @@ swift_library(
         "//submodules/AccountContext",
         "//submodules/Components/ComponentDisplayAdapters",
         "//submodules/Components/MultilineTextComponent",
-        "//submodules/TelegramUI/Components/MediaEditor",
         "//submodules/TelegramUI/Components/AudioWaveformComponent",
         "//submodules/UIKitRuntimeUtils",
     ],

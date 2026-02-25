@@ -23,7 +23,6 @@ swift_library(
         "//submodules/Components/ComponentDisplayAdapters",
         "//submodules/TelegramUI/Components/TextFieldComponent",
         "//submodules/TextFormat",
-        "//submodules/TelegramUI/Components/PremiumPeerShortcutComponent",
     ],
     visibility = [
         "//visibility:public",
