@@ -909,7 +909,7 @@ private final class TooltipScreenNode: ViewControllerTracingNode {
         }
         
         if let avatarNode = self.avatarNode {
-            var avatarFrame = animationFrame
+            let avatarFrame = animationFrame
             
             // LEAN: Story indicator removed
             /*

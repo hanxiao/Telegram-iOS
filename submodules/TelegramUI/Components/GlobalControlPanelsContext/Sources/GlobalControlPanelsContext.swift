@@ -4,7 +4,7 @@ import SwiftSignalKit
 import TelegramCore
 import AccountContext
 import TelegramUIPreferences
-import TelegramCallsUI
+// import TelegramCallsUI // LEAN: removed calls
 import Display
 import UndoUI
 
