@@ -186,7 +186,9 @@ genrule(
     srcs = [
         ":FFMpegSources"
     ] + [
+        "//third-party/libvpx:Public/vpx/{}".format(x) for x in vpx_headers
     ] + [
+        "//third-party/libvpx:Public/vpx/lib{}.a".format(x) for x in vpx_libs
     ] + [
         "//third-party/opus:Public/opus/{}".format(x) for x in opus_headers
     ] + [

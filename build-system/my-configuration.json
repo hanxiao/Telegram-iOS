@@ -1,0 +1,14 @@
+{
+  "bundle_id": "com.hanxiao.telegram",
+  "team_id": "MTECXQ97E6",
+  "api_id": "8",
+  "api_hash": "7245de8e747a0d6fbe11f7cc14fcc0bb",
+  "app_center_id": "",
+  "is_internal_build": true,
+  "is_appstore_build": false,
+  "appstore_id": "",
+  "app_specific_url_scheme": "tg",
+  "premium_iap_product_id": "",
+  "enable_siri": false,
+  "enable_icloud": false
+}
