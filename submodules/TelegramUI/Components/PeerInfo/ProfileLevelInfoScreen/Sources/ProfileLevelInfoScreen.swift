@@ -15,7 +15,6 @@ import BundleIconComponent
 import PresentationDataUtils
 import PlainButtonComponent
 import Markdown
-import PremiumUI
 import LottieComponent
 import AnimatedTextComponent
 import ProfileLevelRatingBarComponent
