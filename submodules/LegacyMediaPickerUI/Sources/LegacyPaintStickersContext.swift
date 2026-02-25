@@ -81,6 +81,13 @@ class DrawingScreen: NSObject, TGPhotoDrawingInterfaceController {
     func adapterContainerLayoutUpdatedSize(_ size: CGSize, intrinsicInsets: UIEdgeInsets, safeInsets: UIEdgeInsets, statusBarHeight: CGFloat, inputHeight: CGFloat, orientation: UIInterfaceOrientation, isRegular: Bool, animated: Bool) {}
 }
 class DrawingEntitiesView: UIView, TGPhotoDrawingEntitiesView {
+    var getEntityCenterPosition: (() -> CGPoint) = { .zero }
+    var getEntityInitialRotation: (() -> CGFloat) = { 0 }
+    var getEntityAdditionalScale: (() -> CGFloat) = { 1 }
+    var hasSelectionChanged: ((Bool) -> Void) = { _ in }
+    var hasSelection: Bool { return false }
+    var isEditingText: Bool { return false }
+    
     init(context: AccountContext, size: CGSize) {
         super.init(frame: CGRect(origin: .zero, size: size))
     }
@@ -88,20 +95,17 @@ class DrawingEntitiesView: UIView, TGPhotoDrawingEntitiesView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // TGPhotoDrawingEntitiesView protocol stubs
-    func onInteractionUpdated(_ f: (() -> Void)!) {}
-    func onEntityHandleTap(_ f: (() -> Void)!) {}
-    func onSelectionChanged(_ f: (() -> Void)!) {}
-    func onZoom() {}
-    func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {}
-    func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {}
-    func handleRotate(_ gestureRecognizer: UIRotationGestureRecognizer) {}
-    func setup(withEntitiesData entitiesData: Data?) {}
+    func play() {}
     func pause() {}
     func seek(to timestamp: Double) {}
     func resetToStart() {}
     func updateVisibility(_ visibility: Bool) {}
     func clearSelection() {}
+    func onZoom() {}
+    func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {}
+    func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {}
+    func handleRotate(_ gestureRecognizer: UIRotationGestureRecognizer) {}
+    func setup(withEntitiesData entitiesData: Data?) {}
 }
 func decodeDrawingEntities(data: Data) -> [AnyObject] {
     return [] // stub - return empty array
