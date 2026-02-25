@@ -10,15 +10,7 @@ import UndoUI
 
 // LEAN: AccountGroupCallContextImpl stub (removed with calls module)
 final class AccountGroupCallContextImpl {
-    struct GroupCallPanelData {
-        let peerId: TelegramCore.PeerId
-        let isChannel: Bool
-        let info: GroupCallInfo
-        let topParticipants: [GroupCallParticipantsContext.Participant]
-        let participantCount: Int
-        let activeSpeakers: Set<TelegramCore.PeerId>
-        let groupCall: PresentationGroupCall?
-    }
+    struct GroupCallPanelData {}
 }
 final class AccountGroupCallContextCacheImpl {}
 
