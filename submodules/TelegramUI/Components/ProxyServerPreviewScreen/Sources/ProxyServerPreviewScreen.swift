@@ -21,16 +21,16 @@ final class TableComponent: Component {
     struct Item: Equatable {
         let id: AnyHashable
         let title: String
-        let value: String
+        let component: AnyComponent<Empty>
         
-        init(id: AnyHashable, title: String, value: String) {
+        init(id: AnyHashable, title: String, component: AnyComponent<Empty>) {
             self.id = id
             self.title = title
-            self.value = value
+            self.component = component
         }
         
         static func == (lhs: Item, rhs: Item) -> Bool {
-            return lhs.id == rhs.id && lhs.title == rhs.title && lhs.value == rhs.value
+            return lhs.id == rhs.id && lhs.title == rhs.title
         }
     }
     
