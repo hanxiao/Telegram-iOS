@@ -10,6 +10,7 @@ import AsyncDisplayKit
 import TelegramUIPreferences
 import TelegramPresentationData
 import TelegramCallsUI
+import TelegramVoip
 import BuildConfig
 import BuildConfigExtra
 import DeviceCheck

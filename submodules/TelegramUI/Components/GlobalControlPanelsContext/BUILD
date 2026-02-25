@@ -14,6 +14,7 @@ swift_library(
         "//submodules/TelegramCore",
         "//submodules/AccountContext",
         "//submodules/TelegramUIPreferences",
+        "//submodules/TelegramCallsUI",
         "//submodules/Display",
         "//submodules/UndoUI",
     ],

@@ -321,6 +321,7 @@ objc_library(
     ],
     deps = [
         ":ffmpeg_lib",
+        "//third-party/libvpx:vpx",
         "//third-party/opus:opus",
         "//third-party/dav1d:dav1d",
     ],

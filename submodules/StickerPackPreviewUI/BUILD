@@ -32,6 +32,7 @@ swift_library(
         "//submodules/ContextUI:ContextUI",
         "//submodules/MoreButtonNode:MoreButtonNode",
         "//submodules/SolidRoundedButtonNode:SolidRoundedButtonNode",
+        "//submodules/PremiumUI:PremiumUI",
         "//submodules/OverlayStatusController:OverlayStatusController",
         "//submodules/TelegramUI/Components/EntityKeyboard:EntityKeyboard",
         "//submodules/TelegramUI/Components/AnimationCache:AnimationCache",

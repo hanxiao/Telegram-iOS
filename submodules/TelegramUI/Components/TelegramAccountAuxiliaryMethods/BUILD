@@ -10,11 +10,11 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        "//submodules/PassportUI",
         "//submodules/Display",
         "//submodules/TelegramCore",
         "//submodules/Postbox",
         "//submodules/MediaResources",
+        "//submodules/PassportUI",
         "//submodules/OpenInExternalAppUI",
         "//submodules/MusicAlbumArtResources",
         "//submodules/LocalMediaResources",

@@ -28,6 +28,7 @@ swift_library(
         "//submodules/AvatarVideoNode:AvatarVideoNode",
         "//submodules/ComponentFlow",
         "//submodules/Components/ComponentDisplayAdapters",
+        "//submodules/TelegramUI/Components/Stories/StorySetIndicatorComponent",
         "//submodules/Components/HierarchyTrackingLayer",
     ],
     visibility = [

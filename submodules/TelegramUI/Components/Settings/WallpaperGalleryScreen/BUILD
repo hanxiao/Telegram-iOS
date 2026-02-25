@@ -22,6 +22,7 @@ swift_library(
         "//submodules/ComponentFlow",
         "//submodules/SolidRoundedButtonNode",
         "//submodules/AppBundle",
+        "//submodules/PremiumUI",
         "//submodules/WallpaperResources",
         "//submodules/HexColor",
         "//submodules/MergeLists",
@@ -30,6 +31,7 @@ swift_library(
         "//submodules/CounterControllerTitleView",
         "//submodules/LegacyMediaPickerUI",
         "//submodules/TelegramUI/Components/Settings/SettingsThemeWallpaperNode",
+        "//submodules/TelegramUI/Components/PremiumLockButtonSubtitleComponent",
     ],
     visibility = [
         "//visibility:public",

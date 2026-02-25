@@ -10,109 +10,11 @@ import TelegramAnimatedStickerNode
 import YuvConversion
 import StickerResources
 import SolidRoundedButtonNode
-// import MediaEditor // Removed for lean build
-// import DrawingUI // Removed for lean build
+import MediaEditor
+import DrawingUI
 import TelegramPresentationData
 import AnimatedCountLabelNode
 import CoreMedia
-
-// MARK: - Stub types for DrawingUI (lean build)
-enum DrawingStickerEntityContent {
-    case file(StickerPackFileReference, Any)
-    case image(UIImage, Any)
-    case animatedImage(Any, Any)
-    case video(Any, Any)
-    case dualVideoReference(Any, Any)
-    case message(Any)
-    case gift(Any)
-}
-struct StickerPackFileReference {
-    let media: TelegramMediaFile
-}
-protocol DrawingStickerEntity: AnyObject {
-    var position: CGPoint { get }
-    var scale: CGFloat { get }
-    var rotation: CGFloat { get }
-    var baseSize: CGSize { get }
-    var mirrored: Bool { get }
-    var isAnimated: Bool { get }
-    var content: DrawingStickerEntityContent { get }
-}
-protocol DrawingSimpleShapeEntity: AnyObject {
-    var position: CGPoint { get }
-    var rotation: CGFloat { get }
-    var size: CGSize { get }
-    var renderImage: UIImage? { get }
-}
-protocol DrawingBubbleEntity: AnyObject {
-    var position: CGPoint { get }
-    var rotation: CGFloat { get }
-    var size: CGSize { get }
-    var renderImage: UIImage? { get }
-}
-protocol DrawingVectorEntity: AnyObject {
-    var drawingSize: CGSize { get }
-    var renderImage: UIImage? { get }
-}
-protocol DrawingTextEntity: AnyObject {
-    var position: CGPoint { get }
-    var scale: CGFloat { get }
-    var rotation: CGFloat { get }
-    var renderImage: UIImage? { get }
-    var renderSubEntities: [AnyObject]? { get }
-}
-class DrawingScreen: NSObject, TGPhotoDrawingInterfaceController {
-    var drawingView: TGPhotoDrawingView
-    var entitiesView: TGPhotoDrawingEntitiesView
-    var selectionContainerView: UIView
-    var contentWrapperView: UIView
-    var requestDismiss: (() -> Void) = {}
-    var requestApply: (() -> Void) = {}
-    var getCurrentImage: (() -> UIImage?) = { nil }
-    var updateVideoPlayback: ((Bool) -> Void) = { _ in }
-    
-    init(context: AccountContext, size: CGSize, originalSize: CGSize, isVideo: Bool, isAvatar: Bool, drawingView: TGPhotoDrawingView?, entitiesView: (UIView & TGPhotoDrawingEntitiesView)?, selectionContainerView: UIView?) {
-        self.drawingView = drawingView ?? UIView() as! TGPhotoDrawingView
-        self.entitiesView = entitiesView ?? (UIView() as! (UIView & TGPhotoDrawingEntitiesView))
-        self.selectionContainerView = selectionContainerView ?? UIView()
-        self.contentWrapperView = UIView()
-        super.init()
-    }
-    
-    func generateResultData() -> TGPaintingData? { return nil }
-    func animateOut(_ completion: @escaping () -> Void) { completion() }
-    func adapterContainerLayoutUpdatedSize(_ size: CGSize, intrinsicInsets: UIEdgeInsets, safeInsets: UIEdgeInsets, statusBarHeight: CGFloat, inputHeight: CGFloat, orientation: UIInterfaceOrientation, isRegular: Bool, animated: Bool) {}
-}
-class DrawingEntitiesView: UIView, TGPhotoDrawingEntitiesView {
-    var getEntityCenterPosition: (() -> CGPoint) = { .zero }
-    var getEntityInitialRotation: (() -> CGFloat) = { 0 }
-    var getEntityAdditionalScale: (() -> CGFloat) = { 1 }
-    var hasSelectionChanged: ((Bool) -> Void) = { _ in }
-    var hasSelection: Bool { return false }
-    var isEditingText: Bool { return false }
-    
-    init(context: AccountContext, size: CGSize) {
-        super.init(frame: CGRect(origin: .zero, size: size))
-    }
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func play() {}
-    func pause() {}
-    func seek(to timestamp: Double) {}
-    func resetToStart() {}
-    func updateVisibility(_ visibility: Bool) {}
-    func clearSelection() {}
-    func onZoom() {}
-    func handlePan(_ gestureRecognizer: UIPanGestureRecognizer) {}
-    func handlePinch(_ gestureRecognizer: UIPinchGestureRecognizer) {}
-    func handleRotate(_ gestureRecognizer: UIRotationGestureRecognizer) {}
-    func setup(withEntitiesData entitiesData: Data?) {}
-}
-func decodeDrawingEntities(data: Data) -> [AnyObject] {
-    return [] // stub - return empty array
-}
 
 protocol LegacyPaintEntity {
     var position: CGPoint { get }
@@ -703,11 +605,7 @@ public final class LegacyPaintStickersContext: NSObject, TGPhotoPaintStickersCon
     }
     
     public func solidRoundedButton(_ title: String, action: @escaping () -> Void) -> UIView & TGPhotoSolidRoundedButtonView {
-        let presentationData = self.context.sharedContext.currentPresentationData.with { $0 }
-        let theme = SolidRoundedButtonTheme(
-            backgroundColor: presentationData.theme.list.itemCheckColors.fillColor,
-            foregroundColor: presentationData.theme.list.itemCheckColors.foregroundColor
-        )
+        let theme = SolidRoundedButtonTheme(theme: self.context.sharedContext.currentPresentationData.with { $0 }.theme)
         let button = SolidRoundedButtonView(title: title, theme: theme, height: 50.0, cornerRadius: 10.0)
         button.pressed = action
         return button

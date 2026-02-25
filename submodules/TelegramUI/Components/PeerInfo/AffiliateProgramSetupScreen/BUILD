@@ -10,7 +10,6 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        "//submodules/TelegramUI/Components/Stories/PeerListItemComponent",
         "//submodules/SSignalKit/SwiftSignalKit",
         "//submodules/AsyncDisplayKit",
         "//submodules/TelegramCore",
@@ -32,12 +31,15 @@ swift_library(
         "//submodules/Components/BlurredBackgroundComponent",
         "//submodules/Markdown",
         "//submodules/PresentationDataUtils",
+        "//submodules/TelegramUI/Components/Stories/PeerListItemComponent",
         "//submodules/ContextUI",
         "//submodules/TelegramUI/Components/AlertComponent",
         "//submodules/TelegramUI/Components/AlertComponent/AlertTableComponent",
+        "//submodules/TelegramUI/Components/Gifts/TableComponent",
         "//submodules/TelegramUI/Components/PlainButtonComponent",
         "//submodules/TelegramUI/Components/ToastComponent",
         "//submodules/AvatarNode",
+        "//submodules/TelegramUI/Components/Premium/PremiumCoinComponent",
     ],
     visibility = [
         "//visibility:public",

@@ -13,26 +13,7 @@ import BalancedTextComponent
 import TextFieldComponent
 import ComponentDisplayAdapters
 import TextFormat
-// import PremiumPeerShortcutComponent // LEAN: removed premium
-
-// LEAN: PremiumPeerShortcutComponent stub (removed module)
-struct PremiumPeerShortcutComponent: Component {
-    enum IconPosition {
-        case left
-        case right
-    }
-    
-    let context: Any
-    let theme: Any
-    let peer: Any
-    let icon: Any
-    let iconPosition: IconPosition
-    
-    static func == (lhs: PremiumPeerShortcutComponent, rhs: PremiumPeerShortcutComponent) -> Bool { return false }
-    
-    func makeView() -> UIView { return UIView() }
-    func update(view: UIView, availableSize: CGSize, state: EmptyComponentState, environment: Environment<Empty>, transition: ComponentTransition) -> CGSize { return CGSize() }
-}
+import PremiumPeerShortcutComponent
 
 private final class VerifyAlertContentNode: AlertContentNode {
     private let context: AccountContext
@@ -220,7 +201,7 @@ private final class VerifyAlertContentNode: AlertContentNode {
                 context: self.context,
                 theme: self.presentationTheme,
                 peer: self.peer,
-                icon: self.verifierIcon as Any,
+                icon: self.verifierIcon,
                 iconPosition: .left
             )),
             environment: {},

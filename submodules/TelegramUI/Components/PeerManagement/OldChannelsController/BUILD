@@ -22,6 +22,7 @@ swift_library(
         "//submodules/SearchUI",
         "//submodules/SearchBarNode",
         "//submodules/SolidRoundedButtonNode",
+        "//submodules/PremiumUI",
         "//submodules/ChatListSearchItemHeader",
         "//submodules/MergeLists",
     ],

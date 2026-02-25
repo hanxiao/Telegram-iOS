@@ -25,6 +25,7 @@ swift_library(
         "//submodules/SearchBarNode:SearchBarNode",
         "//submodules/UndoUI:UndoUI",
         "//submodules/ContextUI:ContextUI",
+        "//submodules/PremiumUI:PremiumUI",
         "//submodules/ChatPresentationInterfaceState:ChatPresentationInterfaceState",
         "//submodules/StickerResources:StickerResources",
         "//submodules/AnimatedStickerNode:AnimatedStickerNode",

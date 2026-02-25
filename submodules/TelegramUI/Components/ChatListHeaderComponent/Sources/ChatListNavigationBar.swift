@@ -8,7 +8,7 @@ import ComponentDisplayAdapters
 import SearchUI
 import AccountContext
 import TelegramCore
-// import StoryPeerListComponent // LEAN: removed
+import StoryPeerListComponent
 import EdgeEffect
 import GlassBackgroundComponent
 
@@ -466,16 +466,21 @@ public final class ChatListNavigationBar: Component {
                 }
             )
             
-            // LEAN: removed StoryPeerListComponent animation handling
-            // let animationHint = transition.userData(AnimationHint.self)
-            // var animationDuration: Double?
-            // if case let .curve(duration, _) = transition.animation {
-            //     animationDuration = duration
-            // }
+            let animationHint = transition.userData(AnimationHint.self)
+            
+            var animationDuration: Double?
+            if case let .curve(duration, _) = transition.animation {
+                animationDuration = duration
+            }
             
             self.currentHeaderComponent = headerComponent
             let headerContentSize = self.headerContent.update(
-                transition: headerTransition, // LEAN: removed StoryPeerListComponent.AnimationHint
+                transition: headerTransition.withUserData(StoryPeerListComponent.AnimationHint(
+                    duration: animationDuration,
+                    allowAvatarsExpansionUpdated: allowAvatarsExpansionUpdated && allowAvatarsExpansion,
+                    bounce: transition.animation.isImmediate,
+                    disableAnimations: animationHint?.disableStoriesAnimations ?? false
+                )),
                 component: AnyComponent(headerComponent),
                 environment: {},
                 containerSize: CGSize(width: currentLayout.size.width, height: 44.0)

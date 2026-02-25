@@ -19,6 +19,7 @@ swift_library(
         "//submodules/TelegramUIPreferences",
         "//submodules/PresentationDataUtils",
         "//submodules/AppBundle",
+        "//submodules/InstantPageUI",
         "//submodules/ContextUI",
         "//submodules/UndoUI",
         "//submodules/TranslateUI",

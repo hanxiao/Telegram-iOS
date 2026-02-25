@@ -26,6 +26,7 @@ swift_library(
         "//submodules/ComponentFlow",
         "//submodules/TelegramUI/Components/EmojiStatusComponent",
         "//submodules/AvatarVideoNode",
+        "//submodules/TelegramUI/Components/Stories/AvatarStoryIndicatorComponent",
         "//submodules/Components/ComponentDisplayAdapters",
     ],
     visibility = [

@@ -35,6 +35,7 @@ swift_library(
         "//submodules/ItemListUI:ItemListUI",
         "//submodules/TelegramStringFormatting:TelegramStringFormatting",
         "//submodules/UndoUI:UndoUI",
+        "//submodules/Stripe:Stripe",
         "//submodules/Components/Forms/CreditCardInputComponent:CreditCardInputComponent",
     ],
     visibility = [

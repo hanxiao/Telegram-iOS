@@ -10,7 +10,6 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        "//submodules/TelegramUI/Components/MediaEditor",
         "//submodules/Postbox",
         "//submodules/SSignalKit/SSignalKit",
         "//submodules/SSignalKit/SwiftSignalKit",
@@ -19,6 +18,7 @@ swift_library(
         "//submodules/FFMpegBinding",
         "//submodules/LocalMediaResources",
         "//submodules/LegacyMediaPickerUI",
+        "//submodules/TelegramUI/Components/MediaEditor",
     ],
     visibility = [
         "//visibility:public",

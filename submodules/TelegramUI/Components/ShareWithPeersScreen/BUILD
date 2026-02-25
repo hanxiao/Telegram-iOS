@@ -10,7 +10,6 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        "//submodules/TelegramUI/Components/Stories/PeerListItemComponent",
         "//submodules/AsyncDisplayKit",
         "//submodules/Display",
         "//submodules/Postbox",
@@ -34,6 +33,7 @@ swift_library(
         "//submodules/AvatarNode",
         "//submodules/CheckNode",
         "//submodules/LocalizedPeerData",
+        "//submodules/TelegramUI/Components/Stories/PeerListItemComponent",
         "//submodules/TelegramUI/Components/LottieComponent",
         "//submodules/TelegramUI/Components/SwitchComponent",
         "//submodules/TooltipUI",

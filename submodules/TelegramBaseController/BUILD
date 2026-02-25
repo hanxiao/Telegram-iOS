@@ -10,7 +10,6 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        "//submodules/TelegramUI/Components/Gifts/GiftItemComponent",
     	"//submodules/SSignalKit/SwiftSignalKit:SwiftSignalKit",
         "//submodules/Postbox:Postbox",
         "//submodules/TelegramCore:TelegramCore",
@@ -23,6 +22,7 @@ swift_library(
         "//submodules/OverlayStatusController:OverlayStatusController",
         "//submodules/PresentationDataUtils:PresentationDataUtils",
         "//submodules/Markdown:Markdown",
+        "//submodules/TelegramCallsUI:TelegramCallsUI",
         "//submodules/ManagedAnimationNode:ManagedAnimationNode",
         "//submodules/TelegramNotices:TelegramNotices",
         "//submodules/TooltipUI:TooltipUI",
@@ -31,6 +31,7 @@ swift_library(
         "//submodules/Components/MultilineTextComponent",
         "//submodules/Components/BundleIconComponent",
         "//submodules/TelegramUI/Components/ButtonComponent",
+        "//submodules/TelegramUI/Components/Gifts/GiftItemComponent",
         "//submodules/TelegramUI/Components/AnimatedTextComponent",
     ],
     visibility = [

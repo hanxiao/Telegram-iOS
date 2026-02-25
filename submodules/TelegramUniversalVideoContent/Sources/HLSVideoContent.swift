@@ -11,15 +11,9 @@ import TelegramAudio
 import AccountContext
 import PhotoResources
 import RangeSet
+import TelegramVoip
 import ManagedFile
 import AppBundle
-
-// LEAN: SharedHLSServer stub (removed module)
-protocol SharedHLSServerSource {
-}
-enum SharedHLSServer {
-    typealias Source = SharedHLSServerSource
-}
 
 public struct HLSCodecConfiguration {
     public var isHardwareAv1Supported: Bool

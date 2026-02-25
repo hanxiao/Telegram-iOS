@@ -10,7 +10,6 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        "//submodules/TelegramUI/Components/Premium/PremiumStarComponent",
         "//submodules/Postbox:Postbox",
         "//submodules/TelegramCore:TelegramCore",
         "//submodules/AsyncDisplayKit:AsyncDisplayKit",
@@ -39,6 +38,7 @@ swift_library(
         "//submodules/TelegramUI/Components/Utils/GenerateStickerPlaceholderImage",
         "//submodules/Components/BalancedTextComponent",
         "//submodules/Markdown",
+        "//submodules/TelegramUI/Components/Premium/PremiumStarComponent",
         "//submodules/TelegramUI/Components/GlassBackgroundComponent",
     ],
     visibility = [

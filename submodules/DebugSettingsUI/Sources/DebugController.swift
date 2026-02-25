@@ -16,6 +16,7 @@ import AppBundle
 import ZipArchive
 import WebKit
 import InAppPurchaseManager
+import TelegramVoip
 
 @objc private final class DebugControllerMailComposeDelegate: NSObject, MFMailComposeViewControllerDelegate {
     public func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

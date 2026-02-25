@@ -12,7 +12,7 @@ import AccountContext
 import Emoji
 import Accelerate
 import ComponentFlow
-// import AvatarStoryIndicatorComponent // LEAN: removed stories
+import AvatarStoryIndicatorComponent
 import DirectMediaImageCache
 
 private let deletedIcon = UIImage(bundleImageName: "Avatar/DeletedIcon")?.precomposed()
@@ -1424,7 +1424,80 @@ public final class AvatarNode: ASDisplayNode {
     }
     
     private func updateStoryIndicator(transition: ComponentTransition) {
-        // LEAN: Story indicators removed
+        if !self.isNodeLoaded {
+            return
+        }
+        if self.bounds.isEmpty {
+            return
+        }
+        guard let storyPresentationParams = self.storyPresentationParams else {
+            return
+        }
+        
+        let size = self.bounds.size
+                
+        if let storyStats = self.storyStats {
+            let activeLineWidth = storyPresentationParams.lineWidth
+            let inactiveLineWidth = storyPresentationParams.inactiveLineWidth
+            let indicatorSize = CGSize(width: size.width - activeLineWidth * 4.0, height: size.height - activeLineWidth * 4.0)
+            let avatarScale = (size.width - activeLineWidth * 4.0) / size.width
+            
+            let storyIndicator: ComponentView<Empty>
+            var indicatorTransition = transition
+            if let current = self.storyIndicator {
+                storyIndicator = current
+            } else {
+                indicatorTransition = transition.withAnimation(.none)
+                storyIndicator = ComponentView()
+                self.storyIndicator = storyIndicator
+            }
+            var mappedProgress: AvatarStoryIndicatorComponent.Progress?
+            if let value = storyStats.progress {
+                mappedProgress = .definite(value)
+            } else if !self.loadingStatuses.isEmpty {
+                mappedProgress = .indefinite
+            }
+            let _ = storyIndicator.update(
+                transition: indicatorTransition,
+                component: AnyComponent(AvatarStoryIndicatorComponent(
+                    hasUnseen: storyStats.unseenCount != 0,
+                    hasUnseenCloseFriendsItems: storyStats.hasUnseenCloseFriendsItems,
+                    hasLiveItems: storyStats.hasLiveItems,
+                    colors: AvatarStoryIndicatorComponent.Colors(
+                        unseenColors: storyPresentationParams.colors.unseenColors,
+                        unseenCloseFriendsColors: storyPresentationParams.colors.unseenCloseFriendsColors,
+                        seenColors: storyPresentationParams.colors.seenColors
+                    ),
+                    activeLineWidth: activeLineWidth,
+                    inactiveLineWidth: inactiveLineWidth,
+                    counters: AvatarStoryIndicatorComponent.Counters(
+                        totalCount: storyStats.totalCount,
+                        unseenCount: storyStats.unseenCount
+                    ),
+                    progress: mappedProgress,
+                    isRoundedRect: self.contentNode.clipStyle == .roundedRect || storyPresentationParams.forceRoundedRect
+                )),
+                environment: {},
+                containerSize: indicatorSize
+            )
+            if let storyIndicatorView = storyIndicator.view {
+                if storyIndicatorView.superview == nil {
+                    self.view.insertSubview(storyIndicatorView, aboveSubview: self.contentNode.view)
+                }
+                indicatorTransition.setFrame(view: storyIndicatorView, frame: CGRect(origin: CGPoint(x: (size.width - indicatorSize.width) * 0.5, y: (size.height - indicatorSize.height) * 0.5), size: indicatorSize))
+            }
+            transition.setScale(view: self.contentNode.view, scale: avatarScale)
+        } else {
+            transition.setScale(view: self.contentNode.view, scale: 1.0)
+            if let storyIndicator = self.storyIndicator {
+                self.storyIndicator = nil
+                if let storyIndicatorView = storyIndicator.view {
+                    transition.setAlpha(view: storyIndicatorView, alpha: 0.0, completion: { [weak storyIndicatorView] _ in
+                        storyIndicatorView?.removeFromSuperview()
+                    })
+                }
+            }
+        }
     }
     
     public func cancelLoading() {

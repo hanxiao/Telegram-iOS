@@ -30,6 +30,7 @@ swift_library(
         "//submodules/Markdown",
         "//submodules/ReactionSelectionNode",
         "//submodules/TelegramUI/Components/Chat/ChatMediaInputStickerGridItem",
+        "//submodules/PremiumUI",
         "//submodules/TelegramUI/Components/LottieComponent",
         "//submodules/Components/BundleIconComponent",
     ],

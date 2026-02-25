@@ -28,7 +28,9 @@ swift_library(
         "//submodules/TelegramAnimatedStickerNode:TelegramAnimatedStickerNode",
         "//submodules/StickerResources:StickerResources",
         "//submodules/TextFormat:TextFormat",
+        "//submodules/DrawingUI:DrawingUI",
         "//submodules/SolidRoundedButtonNode:SolidRoundedButtonNode",
+        "//submodules/TelegramUI/Components/MediaEditor",
         "//submodules/AnimatedCountLabelNode",
     ],
     visibility = [

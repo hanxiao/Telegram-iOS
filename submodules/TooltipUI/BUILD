@@ -23,6 +23,7 @@ swift_library(
         "//submodules/AvatarNode:AvatarNode",
         "//submodules/ComponentFlow",
         "//submodules/Markdown",
+        "//submodules/TelegramUI/Components/Stories/AvatarStoryIndicatorComponent",
         "//submodules/Components/BalancedTextComponent",
         "//submodules/Components/MultilineTextWithEntitiesComponent",
         "//submodules/Components/MultilineTextComponent",

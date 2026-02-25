@@ -22,6 +22,7 @@ swift_library(
         "//submodules/TinyThumbnail:TinyThumbnail",
         "//submodules/FastBlur:FastBlur",
         "//submodules/ComponentFlow",
+        "//submodules/TelegramUI/Components/Stories/AvatarStoryIndicatorComponent",
         "//submodules/DirectMediaImageCache",
     ],
     visibility = [

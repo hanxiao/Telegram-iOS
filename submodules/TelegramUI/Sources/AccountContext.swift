@@ -11,6 +11,7 @@ import LiveLocationManager
 import TemporaryCachedPeerDataManager
 import PhoneNumberFormat
 import TelegramUIPreferences
+import TelegramVoip
 import TelegramCallsUI
 import TelegramBaseController
 import AsyncDisplayKit

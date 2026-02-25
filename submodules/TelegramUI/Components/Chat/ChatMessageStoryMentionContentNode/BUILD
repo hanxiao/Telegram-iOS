@@ -29,6 +29,7 @@ swift_library(
         "//submodules/GalleryUI",
         "//submodules/Markdown",
         "//submodules/ComponentFlow",
+        "//submodules/TelegramUI/Components/Stories/AvatarStoryIndicatorComponent",
         "//submodules/AvatarNode",
         "//submodules/TelegramUI/Components/Chat/ChatMessageBubbleContentNode",
         "//submodules/TelegramUI/Components/Chat/ChatMessageItemCommon",

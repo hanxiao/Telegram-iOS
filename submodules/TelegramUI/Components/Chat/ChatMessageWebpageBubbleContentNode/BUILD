@@ -19,6 +19,7 @@ swift_library(
         "//submodules/TextFormat",
         "//submodules/AccountContext",
         "//submodules/WebsiteType",
+        "//submodules/InstantPageUI",
         "//submodules/UrlHandling",
         "//submodules/GalleryData",
         "//submodules/TelegramPresentationData",

@@ -9,7 +9,7 @@ import TelegramPresentationData
 import AccountContext
 import AudioWaveformComponent
 import MultilineTextComponent
-// import MediaEditor // LEAN: removed
+import MediaEditor
 import UIKitRuntimeUtils
 
 private let handleWidth: CGFloat = 14.0
@@ -668,13 +668,13 @@ public final class MediaScrubberComponent: Component {
                     self.collageTrackView = trackView
                 }
                 
-                // let strings = component.context.sharedContext.currentPresentationData.with { $0 }.strings // LEAN: unused after MediaEditor removal
+                let strings = component.context.sharedContext.currentPresentationData.with { $0 }.strings
                 let trackSize = trackView.update(
                     context: component.context,
                     style: component.style,
                     track: MediaScrubberComponent.Track(
                         id: 1024,
-                        content: .audio(artist: nil, title: "Timeline", samples: component.collageSamples?.samples, peak: component.collageSamples?.peak ?? 0, isTimeline: true),
+                        content: .audio(artist: nil, title: strings.MediaEditor_Timeline, samples: component.collageSamples?.samples, peak: component.collageSamples?.peak ?? 0, isTimeline: true),
                         duration: component.maxDuration,
                         trimRange: nil,
                         offset: nil,
@@ -1416,7 +1416,8 @@ private class TrackView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelega
                 components.append(title)
             }
             if components.isEmpty {
-                components.append("Audio")
+                let strings = context.sharedContext.currentPresentationData.with { $0 }.strings
+                components.append(strings.MediaEditor_Audio)
             }
             trackTitle = components.joined(separator: " • ")
             

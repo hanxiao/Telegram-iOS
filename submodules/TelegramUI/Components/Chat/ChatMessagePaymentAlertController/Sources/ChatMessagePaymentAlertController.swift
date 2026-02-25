@@ -15,7 +15,7 @@ import AvatarNode
 import CheckNode
 import Markdown
 import TextFormat
-// import StarsBalanceOverlayComponent // LEAN: removed
+import StarsBalanceOverlayComponent
 import AlertComponent
 import AlertCheckComponent
 
@@ -153,16 +153,14 @@ public class ChatMessagePaymentAlertController: AlertScreen {
             }
         }
         
-        if let _ = self.context, let _ = self.parentNavigationController, self.showBalance, let _ = self.currency {
+        if let context = self.context, let _ = self.parentNavigationController, self.showBalance, let currency = self.currency {
             let insets = layout.insets(options: .statusBar)
             var balanceTransition = ComponentTransition(transition)
             if self.balance.view == nil {
                 balanceTransition = .immediate
             }
             
-            // LEAN: StarsBalanceOverlayComponent removed
-            let balanceSize = CGSize.zero
-            /* self.balance.update(
+            let balanceSize = self.balance.update(
                 transition: balanceTransition,
                 component: AnyComponent(
                     StarsBalanceOverlayComponent(
@@ -203,7 +201,7 @@ public class ChatMessagePaymentAlertController: AlertScreen {
                 ),
                 environment: {},
                 containerSize: layout.size
-            ) */
+            )
             if let view = self.balance.view {
                 if view.superview == nil {
                     self.view.addSubview(view)

@@ -38,6 +38,7 @@ swift_library(
         "//submodules/TelegramUI/Components/EmojiSuggestionsComponent",
         "//submodules/TelegramUI/Components/ChatControllerInteraction",
         "//submodules/UndoUI",
+        "//submodules/PremiumUI",
         "//submodules/StickerPeekUI",
         "//submodules/TelegramUI/Components/LottieComponent",
         "//submodules/SolidRoundedButtonNode",
@@ -64,6 +65,8 @@ swift_library(
         "//submodules/TelegramUI/Components/Chat/ChatInputContextPanelNode",
         "//submodules/TelegramUI/Components/AnimatedTextComponent",
         "//submodules/TelegramUI/Components/RasterizedCompositionComponent",
+        "//submodules/TelegramUI/Components/StarsParticleEffect",
+        "//submodules/TelegramUI/Components/Calls/VideoChatMicButtonComponent",
     ],
     visibility = [
         "//visibility:public",

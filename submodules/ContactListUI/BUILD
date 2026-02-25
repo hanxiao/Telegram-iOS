@@ -36,6 +36,8 @@ swift_library(
         "//submodules/TelegramAnimatedStickerNode:TelegramAnimatedStickerNode",
         "//submodules/QrCodeUI:QrCodeUI",
         "//submodules/LocalizedPeerData:LocalizedPeerData",
+        "//submodules/TelegramUI/Components/Stories/StoryContainerScreen",
+        "//submodules/TelegramUI/Components/Stories/StoryPeerListComponent",
         "//submodules/TelegramUI/Components/ChatListTitleView",
         "//submodules/TelegramUI/Components/ChatListHeaderComponent",
         "//submodules/ComponentFlow",

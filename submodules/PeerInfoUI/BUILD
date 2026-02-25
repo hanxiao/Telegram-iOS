@@ -72,6 +72,7 @@ swift_library(
         "//submodules/UIKitRuntimeUtils:UIKitRuntimeUtils",
         "//submodules/AnimatedStickerNode:AnimatedStickerNode",
         "//submodules/TelegramAnimatedStickerNode:TelegramAnimatedStickerNode",
+        "//submodules/PremiumUI:PremiumUI",
         "//submodules/Components/ReactionImageComponent:ReactionImageComponent",
         "//submodules/Components/LottieAnimationComponent:LottieAnimationComponent",
         "//submodules/TelegramUI/Components/SendInviteLinkScreen",

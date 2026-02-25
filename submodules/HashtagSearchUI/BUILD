@@ -27,6 +27,7 @@ swift_library(
         "//submodules/ComponentFlow",
         "//submodules/Components/MultilineTextComponent",
         "//submodules/Components/BundleIconComponent",
+        "//submodules/TelegramUI/Components/Stories/StorySetIndicatorComponent",
         "//submodules/TelegramUI/Components/PeerInfo/PeerInfoVisualMediaPaneNode",
         "//submodules/TelegramUI/Components/AnimatedTextComponent",
         "//submodules/Components/BlurredBackgroundComponent",

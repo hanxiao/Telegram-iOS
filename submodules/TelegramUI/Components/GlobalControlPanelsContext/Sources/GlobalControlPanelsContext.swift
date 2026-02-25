@@ -4,23 +4,9 @@ import SwiftSignalKit
 import TelegramCore
 import AccountContext
 import TelegramUIPreferences
-// import TelegramCallsUI // LEAN: removed calls
+import TelegramCallsUI
 import Display
 import UndoUI
-
-// LEAN: AccountGroupCallContextImpl stub (removed with calls module)
-final class AccountGroupCallContextImpl {
-    struct GroupCallPanelData {
-        var peerId: EnginePeer.Id = EnginePeer.Id(0)
-        var isChannel: Bool = false
-        var info: Any? = nil
-        var topParticipants: [Any] = []
-        var participantCount: Int = 0
-        var activeSpeakers: Set<EnginePeer.Id> = Set()
-        var groupCall: Any? = nil
-    }
-}
-final class AccountGroupCallContextCacheImpl {}
 
 public final class GlobalControlPanelsContext {
     public final class MediaPlayback: Equatable {

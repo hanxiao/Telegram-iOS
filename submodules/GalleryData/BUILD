@@ -19,10 +19,12 @@ swift_library(
         "//submodules/AccountContext:AccountContext",
         "//submodules/AppBundle:AppBundle",
         "//submodules/PresentationDataUtils:PresentationDataUtils",
+        "//submodules/InstantPageUI:InstantPageUI",
         "//submodules/GalleryUI:GalleryUI",
         "//submodules/PeerAvatarGalleryUI:PeerAvatarGalleryUI",
         "//submodules/MediaResources:MediaResources",
         "//submodules/WebsiteType:WebsiteType",
+        "//submodules/TelegramUI/Components/Stories/StoryContainerScreen",
     ],
     visibility = [
         "//visibility:public",

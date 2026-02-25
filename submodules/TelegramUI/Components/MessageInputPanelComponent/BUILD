@@ -10,7 +10,6 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        "//submodules/TelegramUI/Components/Stories/PeerListItemComponent",
         "//submodules/Display",
         "//submodules/ComponentFlow",
         "//submodules/AppBundle",
@@ -28,6 +27,7 @@ swift_library(
         "//submodules/MediaPlayer:UniversalMediaPlayer",
         "//submodules/ChatContextQuery",
         "//submodules/TextFormat",
+        "//submodules/TelegramUI/Components/Stories/PeerListItemComponent",
         "//submodules/TelegramUI/Components/MoreHeaderButton",
         "//submodules/TelegramUI/Components/EmojiSuggestionsComponent",
         "//submodules/TelegramUI/Components/EmojiTextAttachmentView",
@@ -39,9 +39,11 @@ swift_library(
         "//submodules/SearchPeerMembers",
         "//submodules/ContextUI",
         "//submodules/TelegramUI/Components/ContextReferenceButtonComponent",
+        "//submodules/TelegramUI/Components/Stories/ForwardInfoPanelComponent",
         "//submodules/TelegramUI/Components/PlainButtonComponent",
         "//submodules/TelegramUI/Components/GlassBackgroundComponent",
         "//submodules/TelegramUI/Components/Chat/ChatTextInputPanelNode",
+        "//submodules/TelegramUI/Components/Stories/LiveChat/StoryLiveChatMessageComponent",
     ],
     visibility = [
         "//visibility:public",
