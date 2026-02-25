@@ -34,7 +34,7 @@ genrule(
     """
     set -ex
 
-    if [ "$(TARGET_CPU)" == "ios_arm64" ]; then
+    if [ "$(TARGET_CPU)" == "darwin_arm64" ] || [ "$(TARGET_CPU)" == "ios_arm64" ]; then
         BUILD_ARCH="arm64"
     elif [ "$(TARGET_CPU)" == "ios_sim_arm64" ]; then
         BUILD_ARCH="sim_arm64"
