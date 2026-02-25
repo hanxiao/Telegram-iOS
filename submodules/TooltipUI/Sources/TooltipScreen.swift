@@ -13,7 +13,7 @@ import UrlEscaping
 import AccountContext
 import AvatarNode
 import ComponentFlow
-import AvatarStoryIndicatorComponent
+// import AvatarStoryIndicatorComponent // LEAN: removed stories
 import AccountContext
 import Markdown
 import BalancedTextComponent
@@ -911,6 +911,8 @@ private final class TooltipScreenNode: ViewControllerTracingNode {
         if let avatarNode = self.avatarNode {
             var avatarFrame = animationFrame
             
+            // LEAN: Story indicator removed
+            /*
             if let icon, case let .peer(_, isStory) = icon, isStory {
                 let indicatorTransition: ComponentTransition = .immediate
                 let avatarStoryIndicator: ComponentView<Empty>
@@ -957,6 +959,7 @@ private final class TooltipScreenNode: ViewControllerTracingNode {
                     avatarStoryIndicator.view?.removeFromSuperview()
                 }
             }
+            */
             
             transition.updateFrame(node: avatarNode, frame: avatarFrame)
             avatarNode.updateSize(size: avatarFrame.size)

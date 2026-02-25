@@ -16,13 +16,6 @@ import ManagedFile
 import FFMpegBinding
 import RangeSet
 
-// LEAN: SharedHLSServer stub (removed module)
-protocol SharedHLSServerSource {
-}
-enum SharedHLSServer {
-    typealias Source = SharedHLSServerSource
-}
-
 private func parseRange(from rangeString: String) -> Range<Int>? {
     guard rangeString.hasPrefix("bytes=") else {
         return nil
