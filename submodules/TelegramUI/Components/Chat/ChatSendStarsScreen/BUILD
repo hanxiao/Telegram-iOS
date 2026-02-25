@@ -10,6 +10,7 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
+        "//submodules/TelegramUI/Components/Stars/StarsBalanceOverlayComponent",
         "//submodules/AsyncDisplayKit",
         "//submodules/Display",
         "//submodules/TelegramPresentationData",
