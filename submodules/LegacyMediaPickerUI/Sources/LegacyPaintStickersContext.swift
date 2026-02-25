@@ -10,11 +10,37 @@ import TelegramAnimatedStickerNode
 import YuvConversion
 import StickerResources
 import SolidRoundedButtonNode
-import MediaEditor
-import DrawingUI
+// import MediaEditor // Removed for lean build
+// import DrawingUI // Removed for lean build
 import TelegramPresentationData
 import AnimatedCountLabelNode
 import CoreMedia
+
+// MARK: - Stub types for DrawingUI (lean build)
+protocol DrawingStickerEntity: AnyObject {}
+protocol DrawingSimpleShapeEntity: AnyObject {}
+protocol DrawingBubbleEntity: AnyObject {}
+protocol DrawingVectorEntity: AnyObject {}
+class DrawingScreen: TGPhotoDrawingInterfaceController {
+    var drawingView: TGPhotoDrawingView
+    var entitiesView: TGPhotoDrawingEntitiesView
+    var selectionContainerView: UIView
+    var contentWrapperView: UIView
+    init(context: AccountContext, size: CGSize, originalSize: CGSize, isVideo: Bool, isAvatar: Bool, drawingView: TGPhotoDrawingView?, entitiesView: (UIView & TGPhotoDrawingEntitiesView)?, selectionContainerView: UIView?) {
+        self.drawingView = drawingView ?? UIView() as! TGPhotoDrawingView
+        self.entitiesView = entitiesView ?? (UIView() as! (UIView & TGPhotoDrawingEntitiesView))
+        self.selectionContainerView = selectionContainerView ?? UIView()
+        self.contentWrapperView = UIView()
+    }
+}
+class DrawingEntitiesView: UIView, TGPhotoDrawingEntitiesView {
+    init(context: AccountContext, size: CGSize) {
+        super.init(frame: CGRect(origin: .zero, size: size))
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
 protocol LegacyPaintEntity {
     var position: CGPoint { get }
@@ -605,7 +631,11 @@ public final class LegacyPaintStickersContext: NSObject, TGPhotoPaintStickersCon
     }
     
     public func solidRoundedButton(_ title: String, action: @escaping () -> Void) -> UIView & TGPhotoSolidRoundedButtonView {
-        let theme = SolidRoundedButtonTheme(theme: self.context.sharedContext.currentPresentationData.with { $0 }.theme)
+        let presentationData = self.context.sharedContext.currentPresentationData.with { $0 }
+        let theme = SolidRoundedButtonTheme(
+            backgroundColor: presentationData.theme.list.itemCheckColors.fillColor,
+            foregroundColor: presentationData.theme.list.itemCheckColors.foregroundColor
+        )
         let button = SolidRoundedButtonView(title: title, theme: theme, height: 50.0, cornerRadius: 10.0)
         button.pressed = action
         return button

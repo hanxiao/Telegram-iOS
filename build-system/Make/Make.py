@@ -46,6 +46,7 @@ class BazelCommandLine:
         self.show_actions = False
         self.enable_sandbox = False
         self.disable_provisioning_profiles = False
+        self.disable_extensions = False
         self.profile_swift = False
 
         self.common_args = [
@@ -136,6 +137,9 @@ class BazelCommandLine:
 
     def set_disable_provisioning_profiles(self):
         self.disable_provisioning_profiles = True
+
+    def set_disable_extensions(self):
+        self.disable_extensions = True
 
     def set_profile_swift(self, value):
         self.profile_swift = value
@@ -281,6 +285,9 @@ class BazelCommandLine:
         if self.disable_provisioning_profiles:
             combined_arguments += ['--//Telegram:disableProvisioningProfiles=True']
 
+        if self.disable_extensions:
+            combined_arguments += ['--//Telegram:disableExtensions=True']
+
         combined_arguments += self.common_args
         combined_arguments += self.common_build_args
         combined_arguments += self.get_define_arguments()
@@ -388,6 +395,9 @@ class BazelCommandLine:
 
         if self.disable_provisioning_profiles:
             combined_arguments += ['--//Telegram:disableProvisioningProfiles=True']
+
+        if self.disable_extensions:
+            combined_arguments += ['--//Telegram:disableExtensions=True']
 
         combined_arguments += self.common_args
         combined_arguments += self.common_build_args
@@ -599,12 +609,16 @@ def build(bazel, arguments):
         bazel_user_root=arguments.bazelUserRoot
     )
     
-    # Determine if provisioning profiles should be disabled
+    # Determine if provisioning profiles and extensions should be disabled
     disable_provisioning_profiles = False
+    disable_extensions = False
     if hasattr(arguments, 'disableProvisioningProfiles') and arguments.disableProvisioningProfiles is not None:
         disable_provisioning_profiles = arguments.disableProvisioningProfiles
+    if hasattr(arguments, 'disableExtensions') and arguments.disableExtensions is not None:
+        disable_extensions = arguments.disableExtensions
     if hasattr(arguments, 'xcodeManagedCodesigning') and arguments.xcodeManagedCodesigning is not None and arguments.xcodeManagedCodesigning == True:
         disable_provisioning_profiles = True
+        disable_extensions = True
 
     if arguments.lock:
         bazel_command_line.set_lock(True)
@@ -633,6 +647,9 @@ def build(bazel, arguments):
     
     if disable_provisioning_profiles:
         bazel_command_line.set_disable_provisioning_profiles()
+
+    if disable_extensions:
+        bazel_command_line.set_disable_extensions()
 
     bazel_command_line.invoke_build()
 
