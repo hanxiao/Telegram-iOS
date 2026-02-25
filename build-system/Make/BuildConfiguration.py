@@ -335,10 +335,15 @@ class XcodeManagedCodesigningSource(CodesigningSource):
         pass
 
     def copy_profiles_to_destination(self, destination_path):
-        pass
+        # Copy fake provisioning profiles for build system compatibility
+        fake_profiles_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/fake-codesigning/profiles'
+        if os.path.exists(fake_profiles_dir):
+            for file_name in os.listdir(fake_profiles_dir):
+                if file_name.endswith('.mobileprovision'):
+                    shutil.copyfile(fake_profiles_dir + '/' + file_name, destination_path + '/' + file_name)
 
     def resolve_aps_environment(self):
-        return ""
+        return "development"
 
     def use_xcode_managed_codesigning(self):
         return True
