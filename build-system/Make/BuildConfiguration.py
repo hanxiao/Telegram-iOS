@@ -343,7 +343,7 @@ class XcodeManagedCodesigningSource(CodesigningSource):
                     shutil.copyfile(fake_profiles_dir + '/' + file_name, destination_path + '/' + file_name)
 
     def resolve_aps_environment(self):
-        return "development"
+        return ""
 
     def use_xcode_managed_codesigning(self):
         return True

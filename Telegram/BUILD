@@ -1700,7 +1700,11 @@ local_provisioning_profile(
 xcode_provisioning_profile(
    name = "Telegram_xcode_profile",
    managed_by_xcode = True,
-   provisioning_profile = ":Telegram_local_profile",
+   provisioning_profile = select({
+       ":disableProvisioningProfilesSetting": ":dummy.mobileprovision",
+       "//conditions:default": ":Telegram_local_profile",
+   }),
+   team_id = telegram_team_id,
 )
 
 ios_application(
@@ -1710,10 +1714,10 @@ ios_application(
     ),
     families = ["iphone", "ipad"],
     minimum_os_version = minimum_os_version,
-    # provisioning_profile = select({
-    #     ":disableProvisioningProfilesSetting": ":Telegram_xcode_profile",
-    #     "//conditions:default": ":Telegram_xcode_profile" if telegram_use_xcode_managed_codesigning else "@build_configuration//provisioning:Telegram.mobileprovision",
-    # }),
+    provisioning_profile = select({
+        ":disableProvisioningProfilesSetting": ":Telegram_xcode_profile",
+        "//conditions:default": ":Telegram_xcode_profile" if telegram_use_xcode_managed_codesigning else "@build_configuration//provisioning:Telegram.mobileprovision",
+    }),
     entitlements = ":TelegramEntitlements.entitlements",
     infoplists = [
         ":TelegramInfoPlist",
