@@ -8,6 +8,18 @@ import TelegramUIPreferences
 import Display
 import UndoUI
 
+// LEAN: AccountGroupCallContextImpl stub (removed with calls module)
+final class AccountGroupCallContextImpl {
+    struct GroupCallPanelData {
+        let peerId: PeerId
+        let info: GroupCallInfo
+        let topParticipants: [GroupCallParticipantsContext.Participant]
+        let participantCount: Int
+        let activeSpeakers: Set<PeerId>
+    }
+}
+final class AccountGroupCallContextCacheImpl {}
+
 public final class GlobalControlPanelsContext {
     public final class MediaPlayback: Equatable {
         public let version: Int

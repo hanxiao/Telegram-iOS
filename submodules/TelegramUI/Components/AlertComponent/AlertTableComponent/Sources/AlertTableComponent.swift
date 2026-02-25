@@ -5,7 +5,17 @@ import Display
 import ComponentFlow
 import TelegramPresentationData
 import AlertComponent
-import TableComponent
+// import TableComponent // LEAN: removed
+
+// LEAN: TableComponent stub (removed module)
+enum TableComponent {
+    struct Item: Equatable {
+        static func == (lhs: Item, rhs: Item) -> Bool {
+            return false // stub
+        }
+    }
+    init(theme: Any, items: [Item], semiTransparent: Bool) {}
+}
 
 public final class AlertTableComponent: Component {
     public typealias EnvironmentType = AlertComponentEnvironment
