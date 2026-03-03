@@ -189,12 +189,18 @@ def copy_profiles_from_directory(source_path, destination_path, team_id, bundle_
             profile_dict = plistlib.loads(profile_data)
             profile_name = profile_dict['Entitlements']['application-identifier']
 
+            # Try exact match first, then fall back to filename-based matching
+            matched = False
             if profile_name.startswith(team_id + '.' + bundle_id):
                 profile_base_name = profile_name[len(team_id + '.' + bundle_id):]
                 if profile_base_name in profile_name_mapping:
                     shutil.copyfile(file_path, destination_path + '/' + profile_name_mapping[profile_base_name] + '.mobileprovision')
-                else:
-                    print('Warning: skipping provisioning profile at {} with bundle_id {} (base_name {})'.format(file_path, profile_name, profile_base_name))
+                    matched = True
+            if not matched:
+                # Fallback: match by filename for fake-codesigning profiles
+                base = os.path.splitext(file_name)[0]
+                if base in profile_name_mapping.values():
+                    shutil.copyfile(file_path, destination_path + '/' + base + '.mobileprovision')
 
 
 def resolve_aps_environment_from_directory(source_path, team_id, bundle_id):
